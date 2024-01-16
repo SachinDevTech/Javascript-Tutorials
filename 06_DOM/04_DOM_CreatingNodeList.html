@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Creating nodeLists</title>
+  </head>
+  <body style="background-color: #212121; color: antiquewhite">
+    <script>
+      const divTag = document.createElement("div");
+      console.log(divTag);
+      divTag.className = "container";
+      divTag.id = Math.round(Math.random() * 10 + 1);
+      divTag.style.height = "100px";
+      divTag.style.width = "100px";
+      divTag.style.backgroundColor = "white";
+        divTag.style.color = "black";
+
+      //   ----------------Setting an attribute---------------
+
+      divTag.setAttribute("title", "create divTag");
+      // -----------.innerText vs createTextNode-----------------
+      //We prefer createNodeText because it sets the value in one round while innerText first calls the reference of that div or any other tag then sets the value in that tag.
+
+      // divTag.innerText = "I first take reference of tag or div then sets the value.";
+
+      const addText = document.createTextNode(
+        "I only sets the value in one round so it is optimized. (in black color)"
+      );
+      divTag.appendChild(addText); //--------------Till now we have created that element but not visible at page so we'll append this tag in body as child.
+      document.body.appendChild(divTag); // now white box is added on document
+    </script>
+  </body>
+</html>
