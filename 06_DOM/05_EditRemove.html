@@ -5,5 +5,36 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Edit and Remove Concept in JS DOM</title>
   </head>
-  <body></body>
+  <body style="background-color: #212121; color: beige">
+    <ul class="language">
+      <li>Javascript</li>
+    </ul>
+
+    <script>
+      //Basic way to add or create new HTML tag inside the existing one.
+      function addNewLang(langName) {
+        const newListItem = document.createElement('li');
+        newListItem.innerHTML = `${langName}`;
+        document.querySelector('.language').appendChild(newListItem);
+      }
+      addNewLang('Java - My Love');
+      addNewLang('C++');
+
+      // The best and optimized way to to create function to add elements
+      function addLangByOptimizedWay(langName) {
+        const li = document.createElement('li');
+        li.appendChild(document.createTextNode(langName))
+        document.querySelector(".language").appendChild(li);
+      }
+      addLangByOptimizedWay("HTML");
+      addLangByOptimizedWay("CSS")
+
+
+      // Now how to "Edit" values?
+      const secondLang = document.querySelector("li:nth-child(2)"); // nth-child indexing starts from zero
+      secondLang.innerHTML = "SachinLang"; 
+      secondLang.remove(); //after commenting this you can see "SachinLang"
+
+    </script>
+  </body>
 </html>
